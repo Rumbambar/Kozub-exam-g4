@@ -1,6 +1,6 @@
-import {faker} from '@faker-js/faker'
+import { faker } from '@faker-js/faker'
 import user from '../fixtures/user.json'
-import {login} from '../support/helper.js'
+import { login } from '../support/helper.js'
 import loginPage from "../support/pages/LoginPage"
 
 
@@ -8,11 +8,11 @@ user.email = faker.internet.email({ firstName: 'max', lastName: 'kozub', provide
 user.password = faker.internet.password({ length: 20, memorable: true, pattern: /[A-Z]/ });
 user.confirm = (user.password);
 
-   
+
 
 it('authorization test', () => {
     cy.visit("/register");
-    loginPage.singInButtonDismiss();
+    loginPage.singInButtonDismiss().click();
     cy.get('#emailControl').type(user.email);
     cy.get('#passwordControl').type(user.password);
     cy.get('#repeatPasswordControl').type(user.confirm);

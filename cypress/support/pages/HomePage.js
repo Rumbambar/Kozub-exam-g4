@@ -1,10 +1,10 @@
 class HomePage {
-    visit(){
-        cy.visit('/search/');
+    visit() {
+        cy.visit('/');
     }
 
-    getAccountButton(){
-        return cy.contains( 'Account' );
+    getAccountButton() {
+        return cy.contains('Account');
     }
 }
 export default new HomePage();
