@@ -1,16 +1,11 @@
-import { faker } from '@faker-js/faker'
+
 import user from '../fixtures/user.json'
 import { login } from '../support/helper.js'
 import loginPage from "../support/pages/LoginPage"
 
+ user.confirm = (user.password);
 
-user.email = faker.internet.email({ firstName: 'max', lastName: 'kozub', provider: 'gmail.com' })
-user.password = faker.internet.password({ length: 20, memorable: true, pattern: /[A-Z]/ });
-user.confirm = (user.password);
-
-
-
-it('authorization test', () => {
+it('registration', () => {
     cy.visit("/register");
     loginPage.singInButtonDismiss().click();
     cy.get('#emailControl').type(user.email);

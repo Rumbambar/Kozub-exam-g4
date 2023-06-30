@@ -35,5 +35,9 @@ class LoginPage {
         this.passwordField().type(password);
         this.submitLoginButton().click();
     }
+
+    
+    
+    
 }
 export default new LoginPage();

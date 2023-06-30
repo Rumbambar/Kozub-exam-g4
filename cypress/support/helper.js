@@ -19,3 +19,5 @@ export function findProduct(productName) {
     cy.get('#checkoutButton').click();
 }
 
+
+
