@@ -1,19 +1,18 @@
-
 import user from '../fixtures/user.json'
 import { login } from '../support/helper.js'
 import loginPage from "../support/pages/LoginPage"
 
- user.confirm = (user.password);
+user.confirm = (user.password);
 
 it('registration', () => {
     cy.visit("/register");
     loginPage.singInButtonDismiss().click();
-    cy.get('#emailControl').type(user.email);
-    cy.get('#passwordControl').type(user.password);
-    cy.get('#repeatPasswordControl').type(user.confirm);
-    cy.get('#mat-select-0').click().type(user.answer);
-    cy.get('#securityAnswerControl').type(user.securityanswercontrol);
-    cy.get('[type="submit"]').click();
+    loginPage.enterEmail().type(user.email);
+    loginPage.enterPassword().type(user.password);
+    loginPage.enterDuplicatePassword().type(user.confirm);
+    loginPage.ChooseQuestion().click().type(user.answer);
+    loginPage.enterSecurityanswrrControl().type(user.securityanswercontrol);
+    loginPage.submitButton().click();
 
     login(user);
 })

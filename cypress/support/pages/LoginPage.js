@@ -36,8 +36,32 @@ class LoginPage {
         this.submitLoginButton().click();
     }
 
-    
-    
-    
+    enterEmail() {
+        return cy.get('#emailControl');
+    }
+
+    enterPassword() {
+        return cy.get('#passwordControl');
+    }
+
+    enterDuplicatePassword() {
+        return cy.get('#repeatPasswordControl');
+    }
+
+    ChooseQuestion() {
+        return cy.get('#mat-select-0');
+    }
+
+    enterSecurityanswrrControl() {
+        return cy.get('#securityAnswerControl');
+    }
+
+    submitButton() {
+        return cy.get('[type="submit"]');
+    }
+
+    visit() {
+        cy.visit('/login')
+    }
 }
 export default new LoginPage();
